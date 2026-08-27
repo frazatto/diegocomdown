@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Operação: Aniversário do Diego | Arquivo Confidencial</title>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
   <style>
     :root {
       --fundo: #030712;
-      --fundo-card: rgba(15, 23, 42, 0.75);
+      --fundo-card: rgba(15, 23, 42, 0.92);
       --azul: #38bdf8;
       --azul-glow: rgba(56, 189, 248, 0.35);
       --roxo: #a855f7;
@@ -20,7 +20,7 @@
       --texto: #f8fafc;
       --texto-muted: #94a3b8;
       --borda: rgba(255, 255, 255, 0.08);
-      --borda-ativa: rgba(56, 189, 248, 0.4);
+      --borda-ativa: rgba(56, 189, 248, 0.42);
     }
 
     * {
@@ -29,52 +29,53 @@
       padding: 0;
     }
 
-    html, body {
+    html,
+    body {
       width: 100%;
-      max-width: 100vw;
-      overflow-x: hidden;
-      position: relative;
+      max-width: 100%;
+      overflow-x: clip;
+      overscroll-behavior-x: none;
     }
 
     html {
       scroll-behavior: smooth;
+      background: var(--fundo);
     }
 
     body {
+      min-width: 0;
       color: var(--texto);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--fundo);
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08), transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08), transparent 40%);
+      font-family: "Plus Jakarta Sans", sans-serif;
       line-height: 1.6;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08), transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08), transparent 40%),
+        var(--fundo);
     }
 
-    /* Grid de fundo sutil (Cyber/Tech) */
     body::before {
       content: "";
       position: fixed;
-      inset: 0;
       z-index: -1;
+      inset: 0;
       opacity: 0.25;
       pointer-events: none;
-      background-image: 
+      background-image:
         linear-gradient(var(--borda) 1px, transparent 1px),
         linear-gradient(90deg, var(--borda) 1px, transparent 1px);
       background-size: 40px 40px;
     }
 
-    /* --- HERO SECTION --- */
     .hero {
       position: relative;
-      min-height: 100vh;
+      min-height: 100svh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       padding: 40px 20px;
-      text-align: center;
       overflow: hidden;
+      text-align: center;
     }
 
     .orb {
@@ -97,8 +98,8 @@
     .orb-2 {
       width: 420px;
       height: 420px;
-      bottom: 5%;
       right: 5%;
+      bottom: 5%;
       background: var(--roxo);
       animation-delay: -5s;
     }
@@ -106,8 +107,7 @@
     .hero-conteudo {
       position: relative;
       z-index: 1;
-      max-width: 800px;
-      width: 100%;
+      width: min(100%, 800px);
     }
 
     .selo {
@@ -115,36 +115,36 @@
       align-items: center;
       gap: 8px;
       padding: 8px 16px;
+      margin-bottom: 24px;
       border: 1px solid var(--borda-ativa);
       border-radius: 999px;
       color: var(--azul);
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: "Space Grotesk", sans-serif;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(12px);
-      margin-bottom: 24px;
       box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+      backdrop-filter: blur(12px);
     }
 
     .selo::before {
       content: "";
       width: 6px;
       height: 6px;
-      background: var(--azul);
       border-radius: 50%;
+      background: var(--azul);
       box-shadow: 0 0 8px var(--azul);
       animation: pulsar-ponto 2s infinite;
     }
 
     h1 {
-      font-family: 'Space Grotesk', sans-serif;
+      margin-bottom: 20px;
+      font-family: "Space Grotesk", sans-serif;
       font-size: clamp(36px, 7vw, 88px);
       line-height: 1.05;
       letter-spacing: -0.03em;
-      margin-bottom: 20px;
     }
 
     h1 span {
@@ -155,10 +155,10 @@
     }
 
     .subtitulo {
-      color: var(--texto-muted);
-      font-size: clamp(15px, 2vw, 20px);
       max-width: 600px;
       margin: 0 auto 36px;
+      color: var(--texto-muted);
+      font-size: clamp(15px, 2vw, 20px);
     }
 
     .botao {
@@ -168,13 +168,13 @@
       padding: 16px 32px;
       border-radius: 999px;
       color: var(--fundo);
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
+      font-family: "Space Grotesk", sans-serif;
       font-size: 15px;
+      font-weight: 700;
       text-decoration: none;
       background: linear-gradient(135deg, var(--azul), #2563eb);
       box-shadow: 0 4px 25px var(--azul-glow);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .botao:hover {
@@ -186,133 +186,165 @@
       position: absolute;
       bottom: 30px;
       color: var(--texto-muted);
+      font-family: "Space Grotesk", sans-serif;
       font-size: 11px;
-      font-family: 'Space Grotesk', sans-serif;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       animation: pulsar 2s ease-in-out infinite;
     }
 
-    /* --- INTRODUÇÃO --- */
     .introducao {
-      max-width: 700px;
+      width: min(100%, 700px);
       margin: 0 auto;
       padding: 100px 20px 60px;
       text-align: center;
     }
 
     .rotulo {
+      margin-bottom: 12px;
       color: var(--rosa);
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: "Space Grotesk", sans-serif;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 12px;
     }
 
     h2 {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: "Space Grotesk", sans-serif;
       font-size: clamp(26px, 4vw, 48px);
       line-height: 1.15;
       letter-spacing: -0.02em;
     }
 
-    /* --- REVELAÇÃO SECTION (3D REFINED & CLIPPING FIX) --- */
     .revelacao {
-      min-height: 100vh;
+      position: relative;
+      min-height: 100svh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      position: relative;
-      padding: 80px 20px;
-      perspective: 1600px;
+      padding: 90px 20px 110px;
       overflow: hidden;
+      perspective: 1600px;
     }
 
     .revelacao-cabecalho {
+      z-index: 3;
+      margin-bottom: 40px;
       text-align: center;
-      margin-bottom: 30px;
-      z-index: 2;
     }
 
-    /* Palco com folga generosa e transbordamento visível para o anel de brilho */
     .foto-palco {
       position: relative;
-      width: min(90vw, 440px);
+      z-index: 1;
+      width: min(80vw, 410px);
       aspect-ratio: 0.78;
       display: grid;
       place-items: center;
       transform-style: preserve-3d;
-      margin: 30px auto;
     }
 
-    /* Anel de brilho posicionado com folga para NUNCA cortar a foto interna */
+    /* Anel fica atrás da moldura e nunca sobre a foto. */
     .brilho {
       position: absolute;
-      inset: -50px;
-      border-radius: 50px;
-      opacity: 0;
-      filter: blur(45px);
-      background: conic-gradient(from 0deg, var(--azul), var(--roxo), var(--rosa), var(--azul));
-      transition: opacity 1.2s ease;
-      pointer-events: none;
       z-index: 0;
+      inset: -30px;
+      border: 2px solid transparent;
+      border-radius: 48px;
+      opacity: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(var(--fundo), var(--fundo)) padding-box,
+        conic-gradient(
+          from 0deg,
+          var(--azul),
+          var(--roxo),
+          var(--rosa),
+          var(--azul)
+        ) border-box;
+      box-shadow:
+        0 0 28px rgba(56, 189, 248, 0.2),
+        0 0 70px rgba(168, 85, 247, 0.15);
+      transition: opacity 1s ease;
     }
 
     .moldura {
       position: relative;
+      z-index: 1;
       width: 100%;
       height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      overflow: visible;
       border: 1.5px solid var(--borda-ativa);
       border-radius: 28px;
-      background: var(--fundo-card);
-      backdrop-filter: blur(20px);
-      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(56, 189, 248, 0.1);
       opacity: 0;
+      background:
+        linear-gradient(145deg, rgba(56, 189, 248, 0.13), transparent 38%),
+        var(--fundo-card);
+      box-shadow:
+        0 30px 60px -15px rgba(0, 0, 0, 0.8),
+        inset 0 0 20px rgba(56, 189, 248, 0.1);
       transform: rotateX(25deg) rotateY(-45deg) translateY(100px) scale(0.75);
-      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
       transform-style: preserve-3d;
-      padding: 24px;
-      z-index: 1;
+      transition:
+        opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .moldura::before {
       content: "STATUS: ARQUIVO TOP SECRET • DIEGO";
       position: absolute;
+      z-index: 3;
       top: -16px;
       left: 50%;
-      transform: translateX(-50%) translateZ(40px);
       padding: 6px 16px;
       border: 1px solid var(--borda-ativa);
       border-radius: 999px;
       color: var(--azul);
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: "Space Grotesk", sans-serif;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.15em;
       white-space: nowrap;
       background: var(--fundo);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transform: translateX(-50%) translateZ(40px);
+    }
+
+    .moldura::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      inset: 1px;
+      border-radius: 27px;
+      pointer-events: none;
+      background: linear-gradient(
+        125deg,
+        rgba(255, 255, 255, 0.16),
+        transparent 22%,
+        transparent 72%,
+        rgba(56, 189, 248, 0.08)
+      );
     }
 
     .moldura img {
+      position: relative;
+      z-index: 1;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      display: block;
+      object-fit: contain;
       border-radius: 16px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+      filter: drop-shadow(0 16px 20px rgba(0, 0, 0, 0.45));
       transform: translateZ(50px);
     }
 
-    /* Estados ativados pelo Observer */
     .revelacao.ativa .brilho {
-      opacity: 0.7;
-      animation: girar 12s linear infinite;
+      opacity: 1;
+      animation: girar 14s linear infinite;
     }
 
     .revelacao.ativa .moldura {
@@ -320,44 +352,123 @@
       transform: rotateX(5deg) rotateY(-8deg) translateY(0) scale(1);
     }
 
-    /* --- FINAL & FOOTER --- */
     .final {
-      padding: 40px 20px 80px;
-      text-align: center;
+      min-height: 1px;
+      padding: 20px;
     }
 
     footer {
+      width: 100%;
       padding: 30px 20px;
       border-top: 1px solid var(--borda);
       color: var(--texto-muted);
       font-size: 13px;
       text-align: center;
       background: rgba(3, 7, 18, 0.9);
-      width: 100%;
     }
 
-    /* --- ANIMAÇÕES --- */
     @keyframes flutuar {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(30px, 40px) scale(1.12); }
+      from {
+        transform: translate(0, 0) scale(1);
+      }
+
+      to {
+        transform: translate(30px, 40px) scale(1.12);
+      }
     }
 
     @keyframes pulsar {
-      0%, 100% { opacity: 0.4; transform: translateY(0); }
-      50% { opacity: 1; transform: translateY(6px); }
+      0%, 100% {
+        opacity: 0.4;
+        transform: translateY(0);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateY(6px);
+      }
     }
 
     @keyframes pulsar-ponto {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.4); opacity: 0.6; }
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.6;
+        transform: scale(1.4);
+      }
     }
 
     @keyframes girar {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero {
+        min-height: 100svh;
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .selo {
+        max-width: 100%;
+        font-size: 9px;
+        letter-spacing: 0.11em;
+      }
+
+      .botao {
+        padding: 15px 24px;
+      }
+
+      .introducao {
+        padding-top: 80px;
+      }
+
+      .revelacao {
+        min-height: 860px;
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .revelacao-cabecalho {
+        margin-bottom: 48px;
+      }
+
+      .foto-palco {
+        width: min(78vw, 350px);
+      }
+
+      .brilho {
+        inset: -22px;
+        border-radius: 38px;
+      }
+
+      .moldura {
+        padding: 14px;
+        border-radius: 22px;
+      }
+
+      .moldura::before {
+        top: -14px;
+        max-width: calc(100vw - 48px);
+        overflow: hidden;
+        font-size: 8px;
+        text-overflow: ellipsis;
+      }
+
+      .moldura::after {
+        border-radius: 21px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         scroll-behavior: auto !important;
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
@@ -367,7 +478,6 @@
 </head>
 
 <body>
-
   <section class="hero">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
@@ -399,14 +509,14 @@
 
     <div class="foto-palco">
       <div class="brilho"></div>
+
       <div class="moldura">
         <img id="foto-diego" alt="Diego quando era bebê">
       </div>
     </div>
   </section>
 
-  <section class="final">
-  </section>
+  <section class="final"></section>
 
   <footer>
     Produção independente da turma • Conteúdo classificado sob estrita zoeira interna
@@ -417,10 +527,8 @@
     const moldura = document.querySelector(".moldura");
     const foto = document.querySelector("#foto-diego");
 
-    // Certifique-se de que o arquivo se chama exatamente assim no seu repositório/pasta.
-    foto.src = "./diego-bebe.png.png";
+    foto.src = "./diego-bebe.png";
 
-    // Observer para ativar a animação de entrada da foto
     const observador = new IntersectionObserver((entradas) => {
       entradas.forEach((entrada) => {
         if (entrada.isIntersecting) {
@@ -431,16 +539,17 @@
 
     observador.observe(secaoRevelacao);
 
-    // Efeito interativo suave com o movimento do mouse / toque mobile
-    window.addEventListener("mousemove", (evento) => {
-      if (!secaoRevelacao.classList.contains("ativa")) return;
+    if (window.matchMedia("(pointer: fine)").matches) {
+      window.addEventListener("mousemove", (evento) => {
+        if (!secaoRevelacao.classList.contains("ativa")) return;
 
-      const x = (evento.clientX / window.innerWidth - 0.5) * 14;
-      const y = (evento.clientY / window.innerHeight - 0.5) * -12;
+        const x = (evento.clientX / window.innerWidth - 0.5) * 10;
+        const y = (evento.clientY / window.innerHeight - 0.5) * -8;
 
-      moldura.style.transform = `rotateX(${5 + y}deg) rotateY(${-8 + x}deg) translateY(0) scale(1)`;
-    });
+        moldura.style.transform =
+          `rotateX(${5 + y}deg) rotateY(${-8 + x}deg) translateY(0) scale(1)`;
+      });
+    }
   </script>
-
 </body>
 </html>
